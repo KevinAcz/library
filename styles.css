@@ -1,0 +1,33 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button {
+    text-decoration: none;
+    border: none;
+}
+#book-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 50px;
+    margin: 50px;
+    border: 2px solid black;
+    grid-auto-rows: auto;
+}
+
+.card-container {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    background-color: antiquewhite;
+}
+#open-button {
+    font-size: 1.2rem;
+    padding: 20px;
+}
+#open-button:hover {
+    background-color: antiquewhite;
+}
