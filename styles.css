@@ -31,3 +31,10 @@ button {
 #open-button:hover {
     background-color: antiquewhite;
 }
+ul {
+    list-style-type: none;
+}
+li {
+    margin: 0;
+    padding: 0;
+}
