@@ -1,16 +1,34 @@
 const myLibrary = [];
 
 function Book(author, title, pages, read) {
+
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.read = read;
+
 }
 
-const theHobbit = new Book('autor', 'titulo', 'paginas', true);
-const theHobbit2 = new Book('autor2', 'titulo', 'paginas', true);
-myLibrary.push(theHobbit);
-myLibrary.push(theHobbit2);
+const submit = document.querySelector('#submit');
+
+function submitForm(event) {
+
+    event.preventDefault();
+
+    let title = document.querySelector('#title').value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector('#pages').value;
+    let read = document.querySelector('#read').checked;
+
+    
+    let newBook = new Book(author, title, pages, read);
+    myLibrary.push(newBook);
+
+    submit.addEventListener('click', () => {
+        modal.close();
+    })
+
+}
 
 const openModal = document.querySelector('#open-button');
 
@@ -18,9 +36,8 @@ openModal.addEventListener('click', () => {
     modal.showModal()    
 });
 
-//TODO: Associate every book to an id
-console.log(myLibrary);
-const container = document.querySelector('#book-list');
+let container = document.querySelector('#book-list');
+    
 for (const book of myLibrary) {
     console.log(book.author); //inserta contenido de cada instancia del objeto
     let cardContainer = document.createElement('div');
@@ -49,6 +66,10 @@ for (const book of myLibrary) {
     cardContainer.appendChild(cardPages);
     cardContainer.appendChild(cardRead);
 }
+
+//TODO: Associate every book to an id
+// console.log(myLibrary);
+
 function addBookToLibrary() {
     //do stuff here
 }
