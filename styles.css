@@ -6,6 +6,8 @@ html {
 button {
     text-decoration: none;
     border: none;
+    font-size: 1.2rem;
+    padding: 20px;
 }
 #book-list {
     display: grid;
@@ -24,10 +26,7 @@ button {
     width: 300px;
     background-color: antiquewhite;
 }
-#open-button {
-    font-size: 1.2rem;
-    padding: 20px;
-}
+
 #open-button:hover {
     background-color: antiquewhite;
 }
