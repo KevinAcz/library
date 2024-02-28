@@ -25,8 +25,14 @@ button {
     align-items: center;
     width: 300px;
     background-color: antiquewhite;
+    padding: 20px;
 }
-
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
 #open-button:hover {
     background-color: antiquewhite;
 }

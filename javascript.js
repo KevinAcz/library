@@ -1,10 +1,9 @@
 const myLibrary = [];
 //TODO:
-//ADD BUTTON TO DELETE CARD (USE ID TO IDENTIFY IT)
+//CHANGE ITS READ STATUS ACCORDING TO ITS ID"
 //
 function Book( author, title, pages, read) {
 
-    // this.id = id;
     this.author = author;
     this.title = title;
     this.pages = pages;
@@ -18,7 +17,7 @@ submit.addEventListener('click', () => {
 })
 
     
-// let id = 1;
+let i = 0;
 function submitForm(event) {
 
     event.preventDefault();
@@ -31,6 +30,7 @@ function submitForm(event) {
     let newBook = new Book(author, title, pages, read);
     myLibrary.push(newBook);
     showCards();
+    i += 1;
 
     console.log(myLibrary);
 }
@@ -44,14 +44,12 @@ openModal.addEventListener('click', () => {
     modal.showModal()    
 });
 
-
-let i = 0;
 let container = document.querySelector('#book-list');
 
 //LOOP IN EVERY INSTANCE OF THE OBJECT
 function showCards() {
     container.innerHTML = '';
-    for (const book of myLibrary) {
+    myLibrary.forEach((book, index) => {
     
         let cardContainer = document.createElement('div');
         cardContainer.classList.add('card-container');
@@ -68,31 +66,45 @@ function showCards() {
         let cardRead = document.createElement('p');
         cardContainer.appendChild(cardRead);
 
+        let buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
+        cardContainer.appendChild(buttonsContainer);
+
         let deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-button');
-        deleteButton.dataset.id = i;
+        deleteButton.dataset.id = index; // Use the index as the ID
 
-        cardContainer.appendChild(deleteButton);
+        buttonsContainer.appendChild(deleteButton);
+
+        let readButton = document.createElement('button');
+        readButton.classList.add('read-button');
+        buttonsContainer.appendChild(readButton);
         
-
         container.appendChild(cardContainer);
 
         cardTitle.textContent = book.title;
         cardAuthor.textContent = book.author;
-        cardPages.textContent = book.pages;
-        cardRead.textContent = book.read;
+        cardPages.textContent = book.pages+ ' pages';
+        if (book.read) {
+            cardRead.textContent = 'Already read'
+        } else {
+            cardRead.textContent = 'Not read yet'
+        }
         deleteButton.textContent = 'Delete';
+        readButton.textContent = 'Read status'
 
         deleteButton.addEventListener('click', () => {
-            console.log(deleteButton.dataset.id)
+            myLibrary.splice(index, 1);
+            showCards();
         })
-    }
-    i += 1;
+        readButton.addEventListener('click', () => {
+            myLibrary[index].read = !(myLibrary[index].read);
+            showCards();
+        })
+    });
 }
 
-// function deleteBook(idToDelete) {
-//     myLibrary.splice(idToDelete, 1);
-// }
+
 
 // const deleteButtons = document.querySelectorAll('.delete-button');
 
