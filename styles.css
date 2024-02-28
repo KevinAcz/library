@@ -8,13 +8,20 @@ button {
     border: none;
     font-size: 1.2rem;
     padding: 20px;
+    border-radius: 10px;
+}
+button:hover {
+    background-color:rgb(255,233,243);
+}
+body {
+    background: rgb(255,233,243);
+background: radial-gradient(circle, rgba(255,233,243,1) 0%, rgba(255,255,255,1) 100%);
 }
 #book-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 50px;
     margin: 50px;
-    border: 2px solid black;
     grid-auto-rows: auto;
 }
 
@@ -24,17 +31,20 @@ button {
     justify-content: center;
     align-items: center;
     width: 300px;
-    background-color: antiquewhite;
+    background-color: white;
+    border-radius: 40px;
     padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+.card-container:hover {
+    border: 2px solid black
 }
 .buttons-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-}
-#open-button:hover {
-    background-color: antiquewhite;
 }
 ul {
     list-style-type: none;
